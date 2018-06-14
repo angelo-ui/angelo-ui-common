@@ -1,0 +1,42 @@
+{
+  "name": "angelo-ui-common",
+  "version": "0.0.25",
+  "description": "Angelo UI Common Library",
+  "main": "index.js",
+  "scripts": {
+    "prepublishOnly": "npm i && npm run deploy",
+    "build": "npm run cleanup && npm run tslint && npm run compile",
+    "compile": "npm run compile-es && npm run compile-dts",
+    "compile-es": "babel ./src --out-dir ./ --extensions \".ts,.tsx\" --ignore *.test.js",
+    "compile-dts": "tsc --emitDeclarationOnly",
+    "tslint": "tslint -c tslint.json -p tsconfig.json",
+    "deploy": "npm run build",
+    "cleanup": "node _scripts/cleanup",
+    "aftertests": "node _scripts/aftertests"
+  },
+  "author": "Architecode Corporation",
+  "license": "MIT",
+  "repository": "git+https://gitlab.com/angelo-ui/angelo-ui-common",
+  "dependencies": {
+    "@material-ui/core": "^1.2.1",
+    "mdi-material-ui": "^5.1.1",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
+    "react-router-dom": "^4.3.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.0.0-beta.49",
+    "@babel/core": "^7.0.0-beta.49",
+    "@babel/plugin-proposal-class-properties": "^7.0.0-beta.49",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.49",
+    "@babel/preset-env": "^7.0.0-beta.49",
+    "@babel/preset-react": "^7.0.0-beta.49",
+    "@babel/preset-typescript": "^7.0.0-beta.49",
+    "@types/react": "^16.3.17",
+    "@types/react-dom": "^16.0.6",
+    "@types/react-router-dom": "^4.2.7",
+    "shelljs": "^0.8.2",
+    "tslint": "^5.10.0",
+    "typescript": "^2.9.1"
+  }
+}
